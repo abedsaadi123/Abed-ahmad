@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment Booking | Your Clinic</title>
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Icons+Sharp|Material+Icons+Two+Tone"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+
+            background-image: url('background.png');
+            background-color: lightgreen;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .appointment-container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .appointment-select {
+            margin-bottom: 20px;
+        }
+
+        .appointment-select label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .appointment-select select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .patient-name input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .doctor-name {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .book-appointment button {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .book-appointment button:hover {
+            background-color: #388e3c;
+        }
+
+        .confirmation-message {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .confirmation-message p {
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .back-to-home {
+            background-color: transparent;
+            color: #18a689;
+            border: 2px solid #18a689;
+            margin-top: 2rem;
+        }
+
+        .back-to-home:hover {
+            background-color: #18a689;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="appointment-container">
+            <div class="title">Book Your Appointment</div>
+            <div class="patient-name">
+                <label for="patientName">Your Name:</label>
+                <input type="text" id="patientName" placeholder="Enter your name">
+            </div>
+            <div class="appointment-select">
+                <label for="appointmentDateTime">Select Appointment Date and Time:</label>
+                <select id="appointmentDateTime">
+                    <option value="">-- Select --</option>
+                    <option value="Sunday 09:00">Sunday 09:00 AM</option>
+                    <option value="Sunday 09:00">Sunday 10:00 AM</option>
+                    <option value="Sunday 11:00">Sunday 11:00 AM</option>
+                    <option value="Sunday 11:00">Sunday 12:00 AM</option>
+
+                    <option value="Monday 09:00">Monday 09:00 AM</option> 
+                    <option value="Monday 09:00">Monday 10:00 AM</option>
+                    <option value="Monday 11:00">Monday 11:00 AM</option>
+                    <option value="Monday 11:00">Monday 12:00 AM</option>
+
+                    <option value="Sunday 09:00">Tuesday 09:00 AM</option>
+                    <option value="Sunday 09:00">Tuesday 10:00 AM</option>
+                    <option value="Sunday 11:00">Tuesday 11:00 AM</option>
+                    <option value="Sunday 11:00">Tuesday 12:00 AM</option>
+
+                    <option value="Monday 09:00">Wednesday 09:00 AM</option>
+                    <option value="Monday 09:00">Wednesday 10:00 AM</option>
+                    <option value="Monday 11:00">Wednesday 11:00 AM</option>
+                    <option value="Monday 11:00">Wednesday 12:00 AM</option>
+
+                    <option value="Sunday 09:00">Thursday 09:00 AM</option>
+                    <option value="Sunday 09:00">Thursday 10:00 AM</option>
+                    <option value="Sunday 11:00">Thursday 11:00 AM</option>
+                    <option value="Sunday 11:00">Thursday 12:00 AM</option>
+
+                    <option value="Monday 09:00">Friday 09:00 AM</option>
+                    <option value="Monday 09:00">Friday 10:00 AM</option>
+                    <option value="Monday 11:00">Friday 11:00 AM</option>
+                    <option value="Monday 11:00">Friday 12:00 AM</option>
+                </select>
+            </div>
+            <div class="appointment-select">
+                <label for="doctor-name">Select Doctor:</label>
+                <select id="doctorName">
+                    <option value="">-- Select --</option>
+                    <option value="Dr. John Doe">Dr. John Doe</option>
+                    <option value="Dr. John Doe">Dr. John Doe</option>
+                    <option value="Dr. John Doe">Dr. John Doe</option>
+                    <option value="Dr. John Doe">Dr. John Doe</option>
+                </select>
+            </div>
+            <div class="book-appointment">
+                <button id="bookButton">Book Appointment</button>
+            </div>
+            <div class="confirmation-message" id="confirmationMessage">
+                <p>Your appointment has been successfully booked!</p>
+            </div>
+        </div>
+    </div>
+    <a href="gg.html" class="back-to-home">Back to Home</a>
+    <script>
+        function getDoctorName() {
+            const doctorSelect = document.getElementById('doctorSelect');
+            return doctorSelect.options[doctorSelect.selectedIndex].text;
+        }
+
+        document.getElementById('bookButton').addEventListener('click', function () {
+            const selectedDateTime = document.getElementById('appointmentDateTime').value;
+            const patientName = document.getElementById('patientName').value;
+            if (selectedDateTime && patientName) {
+                // For demo purposes, we'll simulate a successful booking
+                // In a real-world scenario, you would validate the selected date and time, patient's name,
+                // and make an API request to book the appointment
+                // Show confirmation message
+                document.getElementById('confirmationMessage').style.display = 'block';
+                // Scroll to confirmation message
+                document.getElementById('confirmationMessage').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('Please enter your name , name of doctor and select both date and time.');
+            }
+        });
+        // Update doctor's name display when a different doctor is selected
+        document.getElementById('doctorSelect').addEventListener('change', function () {
+            const doctorName = getDoctorName();
+            document.getElementById('doctorName').textContent = 'Doctor: ' + doctorName;
+        });
+    </script>
+</body>
+</html>
